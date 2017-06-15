@@ -1,0 +1,24 @@
+{
+  "name": "my-input",
+  "version": "1.0.0",
+  "description": "Radios, checkboxes and labels.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenthoms/input-yo-input.git"
+  },
+  "keywords": [
+    "input",
+    "checkbox",
+    "radio"
+  ],
+  "author": "Thomas Green <tg@thomasgreen.com.au>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/greenthoms/input-yo-input/issues"
+  },
+  "homepage": "https://github.com/greenthoms/input-yo-input#readme"
+}

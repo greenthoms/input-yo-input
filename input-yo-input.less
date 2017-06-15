@@ -1,0 +1,216 @@
+/* =============================================================
+# Input Yo Input
+
+## Dependencies
+    1. https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css
+    2. https://fonts.googleapis.com/icon?family=Material+Icons
+
+## Markup example:
+
+    <form method="post">
+
+        <!-- ==================== Checkboxes ==================== -->
+
+        <legend>Checkboxes</legend>
+
+        <!-- Checkbox with label left -->
+        <div class="th-checkable">
+            <input id="checkOne"
+                   type="checkbox">
+            <label for="checkOne" 
+                   class="checkbox-label-right">
+                   My label right</label>
+        </div>
+
+        <!-- Checkbox with label right -->
+        <div class="th-checkable">
+            <label for="checkTwo">Label left</label>
+            <input id="checkTwo"
+                   type="checkbox">
+        </div>
+
+        <!-- Checkbox without label, checked -->
+        <div class="th-checkable">
+            <input type="checkbox" checked>
+        </div>
+
+        <!-- Checkbox without label, unchecked -->
+        <div class="th-checkable">
+            <input type="checkbox" unchecked>
+        </div>
+        
+        <!-- Checkbox without label, unchecked -->
+        <!-- Checkbox with label left -->
+        <div class="th-checkable">
+            <input id="checkFive"
+                   type="checkbox" disabled>
+            <label for="checkFive" 
+                   class="checkbox-label-right">
+                   Disabled label right</label>
+        </div>
+            <!-- Checkbox with label left -->
+        <div class="th-checkable">
+            <input id="checkFive"
+                   type="checkbox" checked disabled>
+            <label for="checkFive" 
+                   class="checkbox-label-right">
+                   Disabled checked label right</label>
+        </div>
+        
+
+        <!-- ==================== Radios ==================== -->
+
+        <legend>Radios</legend>
+
+        <fieldset>
+            <!-- Radio with label left -->
+            <div class="th-checkable">
+                <input type="radio"
+                       id="radioOne"
+                       name="radioGroup">
+                <label for="radioOne" 
+                       class="checkbox-label-right">
+                       My label left</label>
+            </div>
+
+            <!-- Radio with label right -->
+            <div class="th-checkable">
+                <label for="radioTwo">My label right</label>
+                <input id="radioTwo"
+                       type="radio"
+                       name="radioGroup">
+            </div>
+
+            <!-- Checkbox without label, checked -->
+            <div class="th-checkable">
+                <input type="radio" 
+                       id="radioThree"
+                       name="radioGroup">
+            </div>
+
+            <!-- Checkbox without label, unchecked -->
+            <div class="th-checkable">
+                <input type="radio"
+                       id="radioFour"
+                       name="radioGroup">
+            </div>
+            <!-- Radio with label left -->
+            <div class="th-checkable">
+                <input type="radio"
+                       id="radioFive"
+                       name="radioGroup" disabled>
+                <label for="radioFive">
+                       My label left disabled</label>
+            </div>
+            
+        </fieldset>
+        
+    </form>
+
+============================================================= */
+
+// Colours
+@input-active: #222;
+@input-inactive: #444;
+// Icons
+@checkbox-checked: "\E834";
+@checkbox-unchecked: "\E835";
+@radio-checked: "\E837";
+@radio-unchecked: "\E836";
+// Sizing
+@input-size: 2rem;
+// Disabled opacity
+@disabled: 0.45;
+
+// Scope styles using LESS nesting
+.th-checkable {
+    display: flex;
+    height: @input-size;
+    margin-bottom: .5rem;
+    
+    label {
+        line-height: @input-size;
+        cursor: pointer;
+    }
+    
+    // Checkboxes ===================================
+    
+    input[type=checkbox],
+    input[type="checkbox"],
+    input[type=radio],
+    input[type="radio"]{
+      visibility: hidden;
+      height: @input-size;
+      vertical-align: top;
+      pointer: cursor;
+      &:disabled {
+        opacity: @disabled;
+      }
+    }
+
+    input[type="checkbox"]:checked:after,
+    input[type="checkbox"]:after,
+    input[type="radio"]:checked:after,
+    input[type="radio"]:after{
+      line-height: 1;
+      pointer: cursor;
+      visibility: visible;
+      font-family: "Material icons";
+      cursor: pointer;
+      font-size: @input-size;
+      &.disabled  {
+        opacity: @disabled;
+      }
+    }
+
+    input[type="checkbox"]:checked:after {
+      content: @checkbox-checked;
+      color: @input-active;
+    }
+
+    input[type="checkbox"]:after {
+      content: @checkbox-unchecked;
+      color: @input-inactive;
+    }
+    
+    input[type="radio"]:checked:after {
+      content: @radio-checked;
+      color: @input-active;
+    }
+
+    input[type="radio"]:after {
+      content: @radio-unchecked;
+      color: @input-inactive;
+    }
+    
+    // Label on left
+    input + label {
+        margin-left: 1.5em;
+    }
+    
+    // Label on right
+    label {
+        margin-right: .25em;
+    }
+    
+}
+
+/* Demo styles */
+html {margin: 3rem;}
+h2 {
+    border-bottom: solid 1px #ccc;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+}
+legend {
+    border-top: solid 1px #ccc;
+    padding-top: 1rem;
+}
+fieldset {
+    margin-bottom: 12rem;
+}
+
+input[type="radio"]:after {
+    
+}
